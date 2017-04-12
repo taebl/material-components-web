@@ -44,10 +44,10 @@ Dialogs inform users about a specific task and may contain critical information 
 > **NOTE**: The `.mdc-dialog__footer__button--accept` element _must_ be the _final focusable element_ within the dialog
 in order for this component to function properly.
 
-In the example above, we've created a dialog box in an `aside` element. Note that you can place content inside 
+In the example above, we've created a dialog box in an `aside` element. Note that you can place content inside
 the dialog. There are two types: dialog & dialogs with scrollable content. These are declared using CSS classes.
 
-Some dialogs will not be tall enough to accomodate everything you would like to display in them. For this there is a 
+Some dialogs will not be tall enough to accomodate everything you would like to display in them. For this there is a
 `mdc-dialog__body--scrollable` modifier to allow scrolling in the dialog.
 
 ```html
@@ -76,14 +76,14 @@ Some dialogs will not be tall enough to accomodate everything you would like to 
           <li class="mdc-list-item">Luna</li>
           <li class="mdc-list-item">Marimba</li>
           <li class="mdc-list-item">Schwifty</li>
-        </ul> 
+        </ul>
       </section>
       <footer class="mdc-dialog__footer">
         <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Decline</button>
         <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Accept</button>
       </footer>
     </div>
-    <div class="mdc-dialog__backdrop"></div> 
+    <div class="mdc-dialog__backdrop"></div>
   </aside>
 ```
 
@@ -115,7 +115,7 @@ const MDCDialogFoundation = mdcDialog.MDCDialogFoundation;
 
 ```javascript
 require(['path/to/mdc-dialog'], mdcDialog => {
-  const MDCDialog = mdcDrawer.MDCDialog;
+  const MDCDialog = mdcDialog.MDCDialog;
   const MDCDialogFoundation = mdcDialog.MDCDialogFoundation;
 });
 ```
@@ -129,7 +129,7 @@ const MDCDialogFoundation = mdc.dialog.MDCDialogFoundation;
 
 #### Automatic Instantiation
 
-If you do not care about retaining the component instance for the temporary drawer, simply call `attachTo()`
+If you do not care about retaining the component instance for the dialog, simply call `attachTo()`
 and pass it a DOM element. This however, is only useful if you do not need to pass a callback to the dialog
 when the user selects Accept or Cancel.
 
@@ -139,7 +139,7 @@ mdc.dialog.MDCDialog.attachTo(document.querySelector('#my-mdc-dialog'));
 
 #### Manual Instantiation
 
-Dialogs can easily be initialized using their default constructors as well, similar to `attachTo`. 
+Dialogs can easily be initialized using their default constructors as well, similar to `attachTo`.
 
 ```javascript
 import {MDCDialog} from 'mdc-dialog';
@@ -167,13 +167,13 @@ document.querySelector('#default-dialog-activation').addEventListener('click', f
 
 ### Dialog component API
 
-#### MDCDialog.open 
+#### MDCDialog.open
 
 Boolean. True when the dialog is shown, false otherwise.
 
 #### MDCDialog.lastFocusedTarget
 
-EventTarget, usually an HTMLElement. Represents the element that was focused on the page before the dialog is shown. If set, 
+EventTarget, usually an HTMLElement. Represents the element that was focused on the page before the dialog is shown. If set,
 the dialog will return focus to this element when closed. _This property should be set before calls to show()_.
 
 
@@ -187,7 +187,7 @@ Cleans up ripples when dialog is destroyed
 
 #### MDCDialog.show() => void
 
-Shows the dialog 
+Shows the dialog
 
 #### MDCDialog.close() => void
 
@@ -208,7 +208,7 @@ Broadcast when a user actions on the `.mdc-dialog__footer__button--cancel` eleme
 MDC Dialog ships with an `MDCDialogFoundation` class that external frameworks and libraries can
 use to integrate the component. As with all foundation classes, an adapter object must be provided.
 
-> **NOTE**: Components themselves must manage adding ripples to dialog buttons, should they choose to 
+> **NOTE**: Components themselves must manage adding ripples to dialog buttons, should they choose to
 do so. We provide instructions on how to add ripples to buttons within the [mdc-button README](https://github.com/material-components/material-components-web/tree/master/packages/mdc-button#adding-ripples-to-buttons).
 
 ### Adapter API
@@ -247,23 +247,23 @@ do so. We provide instructions on how to add ripples to buttons within the [mdc-
 
 ### The full foundation API
 
-#### MDCDialogFoundation.open() => void 
+#### MDCDialogFoundation.open() => void
 
 Opens the dialog, registers appropriate event listners, sets aria attributes, focuses elements.
 
-#### MDCDialogFoundation.close() => void 
+#### MDCDialogFoundation.close() => void
 
 Closes the dialog, deregisters appropriate event listners, resets aria attributes, focuses elements.
 
-#### MDCDialogFoundation.accept(notifyChange = false) => void 
+#### MDCDialogFoundation.accept(notifyChange = false) => void
 
 Closes the dialog. If `notifyChange` is true, calls the adapter's `notifyAccept()` method.
 
-#### MDCDialogFoundation.cancel(notifyChange = false) => void 
+#### MDCDialogFoundation.cancel(notifyChange = false) => void
 
 Closes the dialog. If `notifyChange` is true, calls the adapter's `notifyCancel()` method.
 
-#### MDCDialogFoundation.isOpen() => Boolean 
+#### MDCDialogFoundation.isOpen() => Boolean
 
 Returns true if the dialog is open, false otherwise.
 
